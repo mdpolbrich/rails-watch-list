@@ -17,6 +17,10 @@
             </div>
           </div>
         </div>
+        <p><%= link_to 'Remove',
+                  bookmark_destroy_path(bookmark),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></p>
       </li>
     <% end %>
   </ul>
