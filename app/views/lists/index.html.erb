@@ -1,0 +1,8 @@
+<div class= "container">
+  <ul class= "list-group">
+    <% @lists.each do |list| %>
+      <li class= "list-group-item"><%= link_to list.name, list_path(list) %></li>
+    <% end %>
+  </ul>
+  <p><%= link_to 'Add new list', lists_new_path %></p>
+</div>

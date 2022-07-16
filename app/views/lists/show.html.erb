@@ -1,0 +1,23 @@
+<div class= "container">
+  <p><%= link_to 'Go back', lists_path %></p>
+  <p><%= link_to 'Add movie', new_list_bookmark_path(@list) %></p>
+  <h2><%= @list.name %></h2>
+  <ul>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+           <img src="<%= (bookmark.movie.poster_url) %>" class="card-img" alt="movie poster">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= bookmark.movie.title %></h5>
+              <p class="card-text"><%= bookmark.movie.overview %></p>
+              <p class="card-text">Rating: <%= bookmark.movie.rating %> stars</p>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

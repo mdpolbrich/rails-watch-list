@@ -1,0 +1,9 @@
+<div class= "container">
+  <div class= "form">
+    <%= simple_form_for @list do |f|%>
+      <%= f.input :name %>
+      <%= f.submit 'Add list', class: "btn btn-primary"%>
+    <% end %>
+    </div>
+    <p><%= link_to 'Cancel', lists_path %></p>
+</div>
