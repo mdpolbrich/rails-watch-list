@@ -1,7 +1,18 @@
-<div class= "container">
+<div class= "d-flex flex-row justify-content-around bd-highlight mb-2 my-3">
   <p><%= link_to 'Go back', lists_path %></p>
   <p><%= link_to 'Add movie', new_list_bookmark_path(@list) %></p>
-  <h2><%= @list.name %></h2>
+</div>
+
+<% if @list.image.attached? %>
+  <div class="banner my-3" style="background-size: cover; height: 300px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.image.key, height: 400, crop: :fill %>')">
+<% else %>
+  <div class="banner my-3" style="background-size: cover; height: 300px; fill: cover; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<% end %>
+
+  <div class="container">
+     <h2 class= "text-white p-3"><%= @list.name %></h2>
+  </div>
+</div>
   <ul>
     <% @list.bookmarks.each do |bookmark| %>
       <li class="card mb-3" style="max-width: 540px;">
